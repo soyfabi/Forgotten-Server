@@ -34,6 +34,8 @@
 #include "guild.h"
 #include "groups.h"
 #include "town.h"
+#include "reward.h"
+#include "rewardchest.h"
 
 #include <bitset>
 
@@ -449,6 +451,11 @@ class Player final : public Creature, public Cylinder
 
 		void addConditionSuppressions(uint32_t conditions);
 		void removeConditionSuppressions(uint32_t conditions);
+		
+		Reward* getReward(uint32_t rewardId, bool autoCreate);
+		void removeReward(uint32_t rewardId);
+		void getRewardList(std::vector<uint32_t>& rewards);
+		RewardChest* getRewardChest();
 
 		DepotChest* getDepotChest(uint32_t depotId, bool autoCreate);
 		DepotLocker* getDepotLocker(uint32_t depotId);
@@ -1074,6 +1081,9 @@ class Player final : public Creature, public Cylinder
 		std::map<uint32_t, DepotLocker_ptr> depotLockerMap;
 		std::map<uint32_t, DepotChest*> depotChests;
 		std::map<uint32_t, int32_t> storageMap;
+		
+		std::map<uint32_t, Reward*> rewardMap;
+		RewardChest* rewardChest;
 
 		std::vector<OutfitEntry> outfits;
 		GuildWarVector guildWarVector;

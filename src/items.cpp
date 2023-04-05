@@ -160,6 +160,7 @@ const std::unordered_map<std::string, ItemTypes_t> ItemTypesMap = {
 	{"magicfield", ITEM_TYPE_MAGICFIELD},
 	{"container", ITEM_TYPE_CONTAINER},
 	{"depot", ITEM_TYPE_DEPOT},
+	{"rewardchest", ITEM_TYPE_REWARDCHEST},
 	{"mailbox", ITEM_TYPE_MAILBOX},
 	{"trashholder", ITEM_TYPE_TRASHHOLDER},
 	{"teleport", ITEM_TYPE_TELEPORT},

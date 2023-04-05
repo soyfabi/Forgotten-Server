@@ -155,6 +155,7 @@ class MonsterType
 		bool isIgnoringSpawnBlock = false;
 		bool isIllusionable = false;
 		bool isSummonable = false;
+		bool isRewardBoss;
 		bool hiddenHealth = false;
 		bool canWalkOnEnergy = true;
 		bool canWalkOnFire = true;

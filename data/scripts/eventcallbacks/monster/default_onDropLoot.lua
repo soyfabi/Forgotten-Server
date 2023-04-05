@@ -1,6 +1,20 @@
 local ec = EventCallback
 
 ec.onDropLoot = function(self, corpse)
+
+	local mType = self:getType()
+    if mType:isRewardBoss() then
+        local timestamp = os.time()
+        local rewardContainer = Game.createItem(ITEM_REWARD_CONTAINER)
+        rewardContainer:setAttribute(ITEM_ATTRIBUTE_DATE, timestamp)
+        corpse:setAttribute(ITEM_ATTRIBUTE_DATE, timestamp)
+        corpse:addItemEx(rewardContainer)
+        corpse:setAttribute(ITEM_ATTRIBUTE_CORPSEOWNER, 0xFFFFFFFF)
+		corpse:registerReward()
+        corpse:decay()
+        return
+    end
+	
 	if configManager.getNumber(configKeys.RATE_LOOT) == 0 then
 		return
 	end
